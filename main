@@ -1,0 +1,16 @@
+# Super simple password hashing script written in Python 3 by David Gilmore, 2023.
+
+# begin by importing any modules required
+import bcrypt
+
+# Ask the user for their password
+password = input("What is your password?: ")
+
+# Encode the password and salt as bytes
+password_bytes = password.encode('utf-8')
+salt = bcrypt.gensalt()
+
+# Display the hashed password and salt
+hashed = bcrypt.hashpw(password_bytes, salt)
+print("Here's your hash: ")
+print(hashed.decode('utf-8'))
